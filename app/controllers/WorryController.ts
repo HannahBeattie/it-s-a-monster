@@ -1,4 +1,4 @@
-import { store } from '../../redux/Store'
+import { store } from '../../reduxold/store'
 
 //locally run strapi server
 const url = 'http://localhost:1337/worries'

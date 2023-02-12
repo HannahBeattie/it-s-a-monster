@@ -1,11 +1,11 @@
-import { createSwitchNavigator, createAppContainer } from 'react-navigation'
+import React from 'react'
+import { createAppContainer, createSwitchNavigator } from 'react-navigation'
+import store, { userSlice } from '../../redux/store'
 import Login from '../../screens/Login'
 import Overview from '../../screens/Overview'
-import { store } from '../../redux/Store'
-import React from 'react'
 
-export default function Authentication() {
-	const [route, setRoute] = React.useState(store.getState().jwt ? 'Overview' : 'Login')
+export default function Auth() {
+	const [route, setRoute] = React.useState(store.getState().user.jwt ? 'Overview' : 'Login')
 	const Navigator = createAppContainer(
 		createSwitchNavigator(
 			{
@@ -21,7 +21,7 @@ export default function Authentication() {
 	)
 	React.useEffect(() => {
 		store.subscribe(() => {
-			setRoute(store.getState().jwt ? 'Overview' : 'Login')
+			setRoute(store.getState().user.jwt ? 'Overview' : 'Login')
 		})
 	}, [])
 	return <Navigator />

@@ -1,4 +1,4 @@
-import { saveUser, deleteUser } from '../../redux/actions/UserActions'
+import { saveUser, deleteUser } from '../../reduxold/actions/UserActions'
 
 const url = 'http://192.168.0.57:1337'
 
